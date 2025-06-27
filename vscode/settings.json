@@ -1,0 +1,131 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Bearded Theme Arc",
+    "workbench.activityBar.location": "hidden",
+    "workbench.list.smoothScrolling": true,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 600,
+    "editor.minimap.enabled": false,
+    "editor.fontSize": 14,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.fontFamily": "Maple Mono NF",
+    "editor.fontWeight": "bold",
+    "editor.suggest.insertMode": "replace",
+    "editor.lineNumbers": "relative",
+    "editor.tabSize": 4,
+    "editor.indentSize": "tabSize",
+    "editor.detectIndentation": false,
+    "editor.smoothScrolling": true,
+    "editor.inlayHints.enabled": "off",
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.fontFamily": "Maple Mono NF",
+    "terminal.integrated.smoothScrolling": true,
+    "extensions.ignoreRecommendations": true,
+    "vim.easymotion": true,
+    "vim.foldfix": true,
+    "vim.useSystemClipboard": true,
+    "vim.highlightedyank.enable": true,
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "<C-w>": false,
+        "<C-f>": false,
+        "<C-c>": false
+    },
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "H",
+            ],
+            "after": [
+                "^",
+            ]
+        },
+        {
+            "before": [
+                "L",
+            ],
+            "after": [
+                "$",
+            ]
+        },
+        {
+            "before": [
+                "<C-a>",
+            ],
+            "after": [
+                "g",
+                "g",
+                "V",
+                "G",
+            ]
+        },
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "H",
+            ],
+            "after": [
+                "^",
+            ]
+        },
+        {
+            "before": [
+                "L",
+            ],
+            "after": [
+                "$",
+            ]
+        },
+    ],
+    "vim.operatorPendingModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "H",
+            ],
+            "after": [
+                "^",
+            ]
+        },
+        {
+            "before": [
+                "L",
+            ],
+            "after": [
+                "$",
+            ]
+        },
+    ],
+    "clangd.arguments": [
+        // Location of the file compile_commands.json.
+        "--compile-commands-dir=${workspaceFolder}/build",
+        // All scopes completion.
+        "--all-scopes-completion",
+        // Completion style where "bundled" means similar completion items 
+        // (e.g. functiono overloads) are combined
+        "--completion-style=bundled",
+        // No function parameter placeholders for function completion.
+        "--function-arg-placeholders=0",
+        // Allow inserting header files.
+        "--header-insertion=iwyu",
+        // Analyze files in the background.
+        "--background-index",
+        // Enable clang tidy for static check.
+        "--clang-tidy",
+        // Read user and project configuration from YAML file.
+        "--enable-config",
+        // Number of async workers used by clangd.
+        "-j=12",
+        // The location of PCH (PreCompiled header, used for accelerating compilation) files.
+        // Available values are disk and memory.
+        "--pch-storage=disk",
+        // More detailed logs.
+        "--log=verbose",
+        // Prettier output json file.
+        "--pretty",
+        // Used to extract system includes.
+        "--query-driver=/usr/bin/gcc,/usr/bin/g++"
+    ],
+    "security.workspace.trust.untrustedFiles": "open",
+}

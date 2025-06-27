@@ -1,0 +1,10 @@
+# Common for C and C++.
+BasedOnStyle: Google
+IndentWidth: 4
+BreakBeforeBraces: Allman
+
+# No indent for C++ access modifiers.
+AccessModifierOffset: -4
+IndentAccessModifiers: false
+
+BreakTemplateDeclarations: Yes

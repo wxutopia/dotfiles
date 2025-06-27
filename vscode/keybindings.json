@@ -1,0 +1,95 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "ctrl+e",
+        "command": "workbench.view.explorer",
+        "when": "viewContainer.workbench.view.explorer.enabled"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "a",
+        "command": "explorer.newFile",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "r",
+        "command": "renameFile",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "c",
+        "command": "filesExplorer.copy",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "p",
+        "command": "filesExplorer.paste",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "d",
+        "command": "deleteFile",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "alt+h",
+        "command": "workbench.action.navigateLeft",
+    },
+    {
+        "key": "alt+l",
+        "command": "workbench.action.navigateRight",
+    },
+    {
+        "key": "alt+j",
+        "command": "workbench.action.navigateDown",
+    },
+    {
+        "key": "alt+k",
+        "command": "workbench.action.navigateUp",
+    },
+    {
+        "key": "alt+i",
+        "command": "workbench.action.terminal.toggleTerminal",
+    },
+    {
+        "key": "alt+u",
+        "command": "workbench.action.togglePanel",
+    },
+    {
+        "key": "alt+[",
+        "command": "workbench.action.splitEditorDown",
+    },
+    {
+        "key": "alt+]",
+        "command": "workbench.action.splitEditor",
+    },
+    {
+        "key": "alt+;",
+        "command": "workbench.action.nextEditor",
+    },
+    {
+        "key": "alt+'",
+        "command": "workbench.action.previousEditor",
+    },
+    {
+        "key": "ctrl+j",
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "selectPrevSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "alt+f",
+        "command": "editor.action.format",
+    },
+    {
+        "key": "alt+w",
+        "command": "workbench.action.closeActiveEditor"
+    }
+]

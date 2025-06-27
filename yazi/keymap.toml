@@ -1,0 +1,11 @@
+[manager]
+prepend_keymap = [
+	{ on = "w", run = "close", desc = "Close current tab." },
+	{ on = "z", run = "plugin zoxide", desc = "Change directory with zoxide." },
+	{ on = "Z", run = "plugin fzf", desc = "Change directory with fzf." },
+	{ on = ";", run = "tab_switch 1 --relative", desc = "Switch to next tab." },
+	{ on = "'", run = "tab_switch -1 --relative", desc = "Switch to previous tab." },
+	{ on = "\"", run = "shell --interactive",         desc = "Run a shell command." },
+	{ on = ":",  run = "shell --block --interactive", desc = "Run a shell command (block until finishes)." },
+	{ on = "W", run = "tasks:show", desc = "Show task manager." },
+]
