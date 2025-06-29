@@ -11,8 +11,11 @@ map("n", "<leader>]", "<cmd>vsplit<CR>", { desc = "Split window vertically." })
 
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "General clear highlights." })
 
-map({ "n", "v", "o" }, "H", "^", { desc = "To begin of line." })
-map({ "n", "v", "o" }, "L", "$", { desc = "To end of line." })
+map("n", "j", "gj", { desc = "Down a visual line." })
+map("n", "k", "gk", { desc = "Up a visual line." })
+
+map({ "n", "v", "o" }, "H", "g^", { desc = "To begin of line." })
+map({ "n", "v", "o" }, "L", "g$", { desc = "To end of line." })
 
 map("n", "<leader>s", "<cmd>wa<CR>", { desc = "Save all files." })
 map("n", "<leader>q", "<cmd>qa<CR>", { desc = "Quit vim." })

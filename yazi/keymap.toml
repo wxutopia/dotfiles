@@ -1,4 +1,4 @@
-[manager]
+[mgr]
 prepend_keymap = [
 	{ on = "w", run = "close", desc = "Close current tab." },
 	{ on = "z", run = "plugin zoxide", desc = "Change directory with zoxide." },
