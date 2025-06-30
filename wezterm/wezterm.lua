@@ -44,8 +44,6 @@ local config = {
 		brightness = 0.5,
 	},
 
-	text_background_opacity = 0.9,
-
 	default_cursor_style = "BlinkingBar",
 	cursor_blink_ease_in = "Constant",
 	cursor_blink_ease_out = "Constant",
