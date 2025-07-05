@@ -161,12 +161,12 @@ config.keys = {
 	},
 	{
 		key = "c",
-		mods = "CTRL|SHIFT",
+		mods = alt_or_cmd,
 		action = act.CopyTo("Clipboard"),
 	},
 	{
 		key = "v",
-		mods = "CTRL",
+		mods = alt_or_cmd,
 		action = act.PasteFrom("Clipboard"),
 	},
 	{
