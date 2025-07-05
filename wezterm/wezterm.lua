@@ -15,7 +15,7 @@ end
 
 local config = {
 	font_size = 10,
-	font = wezterm.font("Maple Mono NF", { weight = "Bold" }),
+	font = wezterm.font("Maple Mono NF CN", { weight = "Bold" }),
 
 	color_scheme = "Everforest Dark (Gogh)",
 
