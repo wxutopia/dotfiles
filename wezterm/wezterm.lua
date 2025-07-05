@@ -95,6 +95,11 @@ end
 local act = wezterm.action
 config.keys = {
 	{
+		key = "q",
+		mods = alt_or_cmd,
+		action = act.QuitApplication,
+	},
+	{
 		key = "w",
 		mods = alt_or_cmd,
 		action = act.CloseCurrentTab({ confirm = true }),
