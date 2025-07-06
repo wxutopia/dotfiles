@@ -28,7 +28,9 @@ file(GLOB HEADER_FILES
 )
 
 file(GLOB_RECURSE SRC_FILES
+    ${CMAKE_CURRENT_SOURCE_DIR}/test_split_string/*.c
     ${CMAKE_CURRENT_SOURCE_DIR}/test_split_string/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/test_smart_pointer/*.c
     ${CMAKE_CURRENT_SOURCE_DIR}/test_smart_pointer/*.cpp
 )
 
