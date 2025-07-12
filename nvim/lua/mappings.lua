@@ -20,8 +20,6 @@ map({ "n", "v", "o" }, "L", "g$", { desc = "To end of line." })
 map("n", "<leader>s", "<cmd>wa<CR>", { desc = "Save all files." })
 map("n", "<leader>q", "<cmd>qa<CR>", { desc = "Quit vim." })
 
-map("n", "<leader>e", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle nvim tree." })
-
 map("n", "<leader>;", "<cmd>BufferLineCycleNext<CR>", { desc = "Next buffer." })
 map("n", "<leader>'", "<cmd>BufferLineCyclePrev<CR>", { desc = "Previous buffer." })
 map("n", "<leader>b", "<cmd>BufferLinePick<CR>", { desc = "Pick buffer." })

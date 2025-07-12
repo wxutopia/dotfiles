@@ -1,6 +1,5 @@
 return {
 	"numToStr/Comment.nvim",
-	lazy = true,
 	opts = {},
 	config = function()
 		local opts = { noremap = true, silent = true }
