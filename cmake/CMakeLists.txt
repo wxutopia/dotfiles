@@ -7,6 +7,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+if (CMAKE_GENERATOR MATCHES "MinGW Makefiles")
+    set(CMAKE_CXX_COMPILER g++)
+endif()
+
 # For multi-config generators such as Visual Studio.
 if (CMAKE_CONFIGURATION_TYPES)
 

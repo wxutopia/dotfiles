@@ -96,6 +96,9 @@ return {
 		local query_driver = ""
 		if is_linux then
 			query_driver = "--query-driver=/usr/bin/gcc,/usr/bin/g++"
+		elseif is_win then
+			query_driver =
+				"--query-driver=C:\\Users\\wangx\\scoop\\apps\\mingw\\current\\bin\\gcc.exe,C:\\Users\\wangx\\scoop\\apps\\mingw\\current\\bin\\g++.exe"
 		end
 		vim.lsp.config("clangd", {
 			cmd = {
