@@ -30,7 +30,6 @@ local config = {
 	show_new_tab_button_in_tab_bar = false,
 
 	window_decorations = "RESIZE",
-	window_background_opacity = 0.9,
 	adjust_window_size_when_changing_font_size = false,
 	window_padding = {
 		left = 15,
