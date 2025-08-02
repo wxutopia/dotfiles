@@ -15,6 +15,8 @@ return {
 		"onsails/lspkind.nvim", -- vscode like pictograms
 	},
 	config = function()
+		vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE" })
+
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 		local lspkind = require("lspkind")
