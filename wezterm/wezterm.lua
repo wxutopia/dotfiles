@@ -17,6 +17,8 @@ local config = {
 	font_size = 10,
 	font = wezterm.font("Maple Mono NF CN", { weight = "Bold" }),
 
+	underline_thickness = "0.13cell",
+
 	color_scheme = "Everforest Dark (Gogh)",
 
 	initial_cols = 120,
@@ -47,6 +49,7 @@ local config = {
 	cursor_blink_ease_in = "Constant",
 	cursor_blink_ease_out = "Constant",
 	cursor_blink_rate = 500,
+	cursor_thickness = 1,
 
 	default_prog = { default_prog },
 }
