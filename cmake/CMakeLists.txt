@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.15)
 
 project(LearnCpp LANGUAGES CXX)
 
@@ -25,30 +25,34 @@ endif()
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 file(GLOB HEADER_FILES 
-    ${CMAKE_CURRENT_SOURCE_DIR}/test_split_string/*.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/test_split_string/*.hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/test_smart_pointer/*.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/test_smart_pointer/*.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/split_string/*.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/split_string/*.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/smart_pointer/*.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/smart_pointer/*.hpp
 )
 
 file(GLOB_RECURSE SRC_FILES
-    ${CMAKE_CURRENT_SOURCE_DIR}/test_split_string/*.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/test_split_string/*.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/test_smart_pointer/*.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/test_smart_pointer/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/split_string/*.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/split_string/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/smart_pointer/*.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/smart_pointer/*.cpp
 )
 
-include_directories(
-    ${CMAKE_CURRENT_SOURCE_DIR}/test_split_string
-    ${CMAKE_CURRENT_SOURCE_DIR}/test_smart_pointer
-)
+set(EXE_NAME "LearnCpp")
 
 if(MSVC)
-	add_executable(LearnCpp main.cpp ${SRC_FILES} ${HEADER_FILES})
+	add_executable(${EXE_NAME} main.cpp ${SRC_FILES} ${HEADER_FILES})
 
 	source_group("Header Files" FILES ${HEADER_FILES})
-    set_target_properties(LearnCpp PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/$(Configuration)")
-    set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT LearnCpp)
+    set_target_properties(${EXE_NAME} PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/$(Configuration)")
+    set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${PROJECT_NAME})
 else()
-	add_executable(LearnCpp main.cpp ${SRC_FILES})
+	add_executable(${EXE_NAME} main.cpp ${SRC_FILES})
 endif()
+
+target_include_directories(
+    ${EXE_NAME} PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/split_string
+    ${CMAKE_CURRENT_SOURCE_DIR}/smart_pointer
+)
+
