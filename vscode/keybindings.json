@@ -1,12 +1,12 @@
 // Place your key bindings in this file to override the defaults
 [
     {
-        "key": "ctrl+e",
+        "key": "alt+e",
         "command": "workbench.view.explorer",
         "when": "viewContainer.workbench.view.explorer.enabled"
     },
     {
-        "key": "ctrl+b",
+        "key": "alt+b",
         "command": "workbench.action.toggleSidebarVisibility"
     },
     {
