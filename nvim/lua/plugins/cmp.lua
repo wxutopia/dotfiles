@@ -92,7 +92,7 @@ return {
 							select = true,
 						}),
 					},
-					["<C-e>"] = { c = cmp.mapping.abort() },
+					["<A-.>"] = { c = cmp.mapping.abort() },
 				}),
 				sources = cmp.config.sources({
 					{ name = "buffer" },
@@ -108,7 +108,7 @@ return {
 							select = true,
 						}),
 					},
-					["<C-e>"] = { c = cmp.mapping.abort() },
+					["<A-.>"] = { c = cmp.mapping.abort() },
 				}),
 				sources = cmp.config.sources({
 					{ name = "path" },

@@ -48,6 +48,13 @@ return {
 			desc = "Live grep in open buffers.",
 		},
 		{
+			"<leader>fw",
+			function()
+				Snacks.picker.grep_word()
+			end,
+			desc = "Find current word.",
+		},
+		{
 			"<leader>fs",
 			function()
 				Snacks.picker.lsp_symbols()
@@ -55,11 +62,18 @@ return {
 			desc = "Find symbols.",
 		},
 		{
-			"<leader>fw",
+			"<leader>fs",
 			function()
-				Snacks.picker.grep_word()
+				Snacks.picker.lsp_symbols()
 			end,
-			desc = "Find current word.",
+			desc = "Find symbols.",
+		},
+		{
+			"<leader>fd",
+			function()
+				Snacks.picker.diagnostics()
+			end,
+			desc = "Find diagnostics.",
 		},
 	},
 }
