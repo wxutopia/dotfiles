@@ -137,12 +137,12 @@ config.keys = {
 		action = act.ActivateTabRelative(-1),
 	},
 	{
-		key = "\\",
+		key = "[",
 		mods = alt_or_cmd,
 		action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
 	},
 	{
-		key = "/",
+		key = "]",
 		mods = alt_or_cmd,
 		action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
 	},
