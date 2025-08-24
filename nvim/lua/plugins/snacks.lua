@@ -8,7 +8,22 @@ return {
 			},
 		},
 		explorer = {},
-		picker = {},
+		picker = {
+			sources = {
+				buffers = {
+					hidden = true,
+				},
+				explorer = {
+					include = { ".*" },
+				},
+				files = {
+					hidden = true,
+				},
+				grep = {
+					hidden = true,
+				},
+			},
+		},
 		input = {},
 	},
 	keys = {
@@ -34,7 +49,7 @@ return {
 			desc = "Find existing buffers.",
 		},
 		{
-			"<leader>fg",
+			"<leader>ff",
 			function()
 				Snacks.picker.grep()
 			end,
@@ -53,13 +68,6 @@ return {
 				Snacks.picker.grep_word()
 			end,
 			desc = "Find current word.",
-		},
-		{
-			"<leader>fs",
-			function()
-				Snacks.picker.lsp_symbols()
-			end,
-			desc = "Find symbols.",
 		},
 		{
 			"<leader>fs",
