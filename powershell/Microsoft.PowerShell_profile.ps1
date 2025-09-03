@@ -1,5 +1,3 @@
-# Import-Module posh-git
-
 Import-Module Terminal-Icons
 
 Set-PSReadLineOption -EditMode Vi
@@ -38,14 +36,14 @@ Set-PSReadLineKeyHandler -Key "ctrl+j" -ScriptBlock {
 # Set-PSReadlineKeyHandler -Key "ctrl+Backspace" -Function BackwardKillWord
 # Set-PSReadlineKeyHandler -Key "ctrl+a" -Function SelectAll
 
+$Env:http_proxy="http://127.0.0.1:7890"
+$Env:https_proxy="http://127.0.0.1:7890"
+
 # Utilities
 function which ($command) {
     Get-Command -Name $command -ErrorAction SilentlyContinue |
         Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
 }
-
-# Alias
-Set-Alias typora "C:\Program Files\Typora\Typora.exe"
 
 # Shell wrapper for yazi.
 # The wrapper provides the current working directory when exiting yazi.
