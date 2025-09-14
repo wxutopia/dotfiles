@@ -60,4 +60,5 @@ function y {
 Invoke-Expression (&starship init powershell)
 
 # Setup zoxide
+$Env:YAZI_FILE_ONE="C:\Users\wangx\scoop\apps\git\current\usr\bin\file.exe"
 Invoke-Expression (& { (zoxide init powershell | Out-String ) })
