@@ -25,15 +25,4 @@ return {
 			},
 		},
 	},
-	{
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
-		dependencies = { "mason-org/mason.nvim" },
-		opts = {
-			-- list of formatter and linter for mason to install
-			ensure_installed = {
-				"stylua",
-				"clang-format",
-			},
-		},
-	},
 }
