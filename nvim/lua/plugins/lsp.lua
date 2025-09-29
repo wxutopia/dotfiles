@@ -167,6 +167,9 @@ return {
 						-- Use linting of Ruff.
 						pycodestyle = { enabled = false },
 						pyflakes = { enabled = false },
+						jedi_completion = {
+							include_params = true,
+						},
 					},
 				},
 			},
