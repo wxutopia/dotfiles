@@ -13,17 +13,13 @@ return {
 			direction = "float",
 			shell = terminal_shell,
 			float_opts = {
-				border = "curved",
+				border = "rounded",
 				width = function()
 					return vim.fn.round(vim.o.columns * 0.75)
 				end,
 				height = function()
 					return vim.fn.round(vim.o.lines * 0.75)
 				end,
-				highlights = {
-					border = "Normal",
-					background = "Normal",
-				},
 			},
 		})
 	end,
