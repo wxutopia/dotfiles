@@ -126,5 +126,5 @@
         "--query-driver=/usr/bin/gcc,/usr/bin/g++"
     ],
     "security.workspace.trust.untrustedFiles": "open",
-    "workbench.colorTheme": "Theme",
+    "workbench.colorTheme": "One Candy",
 }
