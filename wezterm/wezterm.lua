@@ -17,12 +17,14 @@ local config = {
 	font_size = 10,
 	font = wezterm.font("Maple Mono NF CN", { weight = "Bold" }),
 
-	underline_thickness = "0.13cell",
+	-- underline_thickness = "0.13cell",
+
+	custom_block_glyphs = false,
 
 	color_scheme = "Everforest Dark (Gogh)",
 
-	initial_cols = 120,
-	initial_rows = 30,
+	initial_cols = 140,
+	initial_rows = 50,
 
 	enable_tab_bar = true,
 	tab_bar_at_bottom = false,
@@ -57,8 +59,8 @@ local config = {
 wezterm.on("gui-startup", function(cmd) -- set startup Window position
 	local main_screen = wezterm.gui.screens().main
 	local position = {
-		x = main_screen.width / 2,
-		y = main_screen.height / 5,
+		x = main_screen.width / 3,
+		y = main_screen.height / 8,
 		origin = "MainScreen",
 	}
 	cmd = cmd or { position = position }
