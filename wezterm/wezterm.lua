@@ -56,6 +56,15 @@ local config = {
 	default_prog = { default_prog },
 }
 
+local gpus = wezterm.gui.enumerate_gpus()
+for _, gpu in ipairs(gpus) do
+	if (gpu.backend == "Vulkan") and (gpu.device_type == "DiscreteGpu") then
+		config.webgpu_preferred_adapter = gpu
+		config.front_end = "WebGpu"
+		break
+	end
+end
+
 wezterm.on("gui-startup", function(cmd) -- set startup Window position
 	local main_screen = wezterm.gui.screens().main
 	local position = {
