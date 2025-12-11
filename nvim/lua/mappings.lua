@@ -18,6 +18,7 @@ map({ "n", "v", "o" }, "H", "g^", { desc = "To begin of line." })
 map({ "n", "v", "o" }, "L", "g$", { desc = "To end of line." })
 
 map("n", "<leader>s", "<cmd>wa<CR>", { desc = "Save all files." })
+map({ "n", "i" }, "<C-s>", "<cmd>wa<CR>", { desc = "Save all files." })
 map("n", "<leader>q", "<cmd>qa<CR>", { desc = "Quit vim." })
 
 map("n", "<leader>;", "<cmd>BufferLineCycleNext<CR>", { desc = "Next buffer." })

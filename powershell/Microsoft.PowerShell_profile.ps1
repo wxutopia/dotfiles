@@ -1,6 +1,6 @@
 Import-Module Terminal-Icons
 
-Set-PSReadLineOption -EditMode Vi
+Set-PSReadLineOption -EditMode Emacs
 
 # Set the prediction source to history records.
 Set-PSReadLineOption -PredictionSource History
@@ -25,16 +25,116 @@ Set-PSReadLineKeyHandler -Key "ctrl+j" -ScriptBlock {
     [Microsoft.PowerShell.PSConsoleReadLine]::HistorySearchForward()
     [Microsoft.PowerShell.PSConsoleReadLine]::EndOfLine()
 }
+Set-PSReadLineKeyHandler -Key '"',"'" `
+                         -BriefDescription SmartInsertQuote `
+                         -LongDescription "Insert paired quotes if not already on a quote" `
+                         -ScriptBlock {
+    param($key, $arg)
 
-# Set-PSReadlineKeyHandler -Key "ctrl+h" -Function BackwardChar
-# Set-PSReadlineKeyHandler -Key "ctrl+l" -Function ForwardChar
-# Set-PSReadlineKeyHandler -Key "ctrl+e" -Function NextWord
-# Set-PSReadlineKeyHandler -Key "ctrl+b" -Function BackwardWord
-# Set-PSReadlineKeyHandler -Key "ctrl+u" -Function BeginningOfLine
-# Set-PSReadlineKeyHandler -Key "ctrl+o" -Function EndOfLine
-# Set-PSReadlineKeyHandler -Key "ctrl+Delete" -Function KillWord
-# Set-PSReadlineKeyHandler -Key "ctrl+Backspace" -Function BackwardKillWord
-# Set-PSReadlineKeyHandler -Key "ctrl+a" -Function SelectAll
+    $line = $null
+    $cursor = $null
+    [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
+
+    if ($line.Length -gt $cursor -and $line[$cursor] -eq $key.KeyChar) {
+        # Just move the cursor
+        [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($cursor + 1)
+    }
+    else {
+        # Insert matching quotes, move cursor to be in between the quotes
+        [Microsoft.PowerShell.PSConsoleReadLine]::Insert("$($key.KeyChar)" * 2)
+        [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
+        [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($cursor - 1)
+    }
+}
+
+Set-PSReadLineKeyHandler -Key '(','{','[' `
+                         -BriefDescription InsertPairedBraces `
+                         -LongDescription "Insert matching braces" `
+                         -ScriptBlock {
+    param($key, $arg)
+
+    $closeChar = switch ($key.KeyChar)
+    {
+        <#case#> '(' { [char]')'; break }
+        <#case#> '{' { [char]'}'; break }
+        <#case#> '[' { [char]']'; break }
+    }
+
+    $selectionStart = $null
+    $selectionLength = $null
+    [Microsoft.PowerShell.PSConsoleReadLine]::GetSelectionState([ref]$selectionStart, [ref]$selectionLength)
+
+    $line = $null
+    $cursor = $null
+    [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
+    
+    if ($selectionStart -ne -1)
+    {
+      # Text is selected, wrap it in brackets
+      [Microsoft.PowerShell.PSConsoleReadLine]::Replace($selectionStart, $selectionLength, $key.KeyChar + $line.SubString($selectionStart, $selectionLength) + $closeChar)
+      [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($selectionStart + $selectionLength + 2)
+    } else {
+      # No text is selected, insert a pair
+      [Microsoft.PowerShell.PSConsoleReadLine]::Insert("$($key.KeyChar)$closeChar")
+      [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($cursor + 1)
+    }
+}
+
+Set-PSReadLineKeyHandler -Key ')',']','}' `
+                         -BriefDescription SmartCloseBraces `
+                         -LongDescription "Insert closing brace or skip" `
+                         -ScriptBlock {
+    param($key, $arg)
+
+    $line = $null
+    $cursor = $null
+    [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
+
+    if ($line[$cursor] -eq $key.KeyChar)
+    {
+        [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($cursor + 1)
+    }
+    else
+    {
+        [Microsoft.PowerShell.PSConsoleReadLine]::Insert("$($key.KeyChar)")
+    }
+}
+
+Set-PSReadLineKeyHandler -Key Backspace `
+                         -BriefDescription SmartBackspace `
+                         -LongDescription "Delete previous character or matching quotes/parens/braces" `
+                         -ScriptBlock {
+    param($key, $arg)
+
+    $line = $null
+    $cursor = $null
+    [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
+
+    if ($cursor -gt 0)
+    {
+        $toMatch = $null
+        if ($cursor -lt $line.Length)
+        {
+            switch ($line[$cursor])
+            {
+                <#case#> '"' { $toMatch = '"'; break }
+                <#case#> "'" { $toMatch = "'"; break }
+                <#case#> ')' { $toMatch = '('; break }
+                <#case#> ']' { $toMatch = '['; break }
+                <#case#> '}' { $toMatch = '{'; break }
+            }
+        }
+
+        if ($toMatch -ne $null -and $line[$cursor-1] -eq $toMatch)
+        {
+            [Microsoft.PowerShell.PSConsoleReadLine]::Delete($cursor - 1, 2)
+        }
+        else
+        {
+            [Microsoft.PowerShell.PSConsoleReadLine]::BackwardDeleteChar($key, $arg)
+        }
+    }
+}
 
 $Env:http_proxy="http://127.0.0.1:7890"
 $Env:https_proxy="http://127.0.0.1:7890"
@@ -57,8 +157,9 @@ function y {
     Remove-Item -Path $tmp
 }
 
+$Env:YAZI_FILE_ONE="C:\Users\wangx\scoop\apps\git\current\usr\bin\file.exe"
+
 Invoke-Expression (&starship init powershell)
 
 # Setup zoxide
-$Env:YAZI_FILE_ONE="C:\Users\wangx\scoop\apps\git\current\usr\bin\file.exe"
 Invoke-Expression (& { (zoxide init powershell | Out-String ) })
