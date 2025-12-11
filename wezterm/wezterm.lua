@@ -115,7 +115,7 @@ config.keys = {
 	{
 		key = "w",
 		mods = alt_or_cmd,
-		action = act.CloseCurrentTab({ confirm = true }),
+		action = act.CloseCurrentPane({ confirm = true }),
 	},
 	{
 		key = "t",
@@ -125,7 +125,7 @@ config.keys = {
 	{
 		key = "y",
 		mods = alt_or_cmd,
-		action = act.CloseCurrentPane({ confirm = true }),
+		action = act.CloseCurrentTab({ confirm = true }),
 	},
 	{
 		key = "m",
