@@ -1,9 +1,10 @@
 {
     "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "One Candy",
     "workbench.activityBar.location": "hidden",
     "workbench.list.smoothScrolling": true,
-    "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 600,
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.formatOnSave": true,
     "editor.minimap.enabled": false,
     "editor.fontSize": 15,
     "editor.bracketPairColorization.enabled": true,
@@ -123,8 +124,7 @@
         // Prettier output json file.
         "--pretty",
         // Used to extract system includes.
-        "--query-driver=/usr/bin/gcc,/usr/bin/g++"
+        "--query-driver=C:\\Users\\wangx\\scoop\\apps\\mingw\\current\\bin\\gcc.exe,C:\\Users\\wangx\\scoop\\apps\\mingw\\current\\bin\\g++.exe"
     ],
-    "security.workspace.trust.untrustedFiles": "open",
-    "workbench.colorTheme": "One Candy",
+    "clang-format.executable": "C:\\Users\\wangx\\scoop\\apps\\llvm\\current\\bin\\clang-format.exe"
 }
