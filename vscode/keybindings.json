@@ -103,5 +103,5 @@
     {
         "key": "alt+s",
         "command": "workbench.action.files.saveAll"
-    },
+    }
 ]

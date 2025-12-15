@@ -126,5 +126,6 @@
         // Used to extract system includes.
         "--query-driver=C:\\Users\\wangx\\scoop\\apps\\mingw\\current\\bin\\gcc.exe,C:\\Users\\wangx\\scoop\\apps\\mingw\\current\\bin\\g++.exe"
     ],
-    "clang-format.executable": "C:\\Users\\wangx\\scoop\\apps\\llvm\\current\\bin\\clang-format.exe"
+    "clang-format.executable": "C:\\Users\\wangx\\scoop\\apps\\llvm\\current\\bin\\clang-format.exe",
+    "python.languageServer": "Pylance"
 }
