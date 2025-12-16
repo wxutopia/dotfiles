@@ -18,6 +18,9 @@
     "editor.smoothScrolling": true,
     "editor.inlayHints.enabled": "off",
     "editor.autoClosingOvertype": "always",
+    "editor.autoClosingDelete": "always",
+    "editor.autoClosingQuotes": "always",
+    "editor.renderWhitespace": "all",
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.fontFamily": "Maple Mono NF",
     "terminal.integrated.smoothScrolling": true,
@@ -129,5 +132,5 @@
     ],
     "clang-format.executable": "C:\\Users\\wangx\\scoop\\apps\\llvm\\current\\bin\\clang-format.exe",
     "python.languageServer": "Pylance",
-    "python.analysis.completeFunctionParens": true
+    "python.analysis.completeFunctionParens": true,
 }
