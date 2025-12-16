@@ -17,6 +17,7 @@
     "editor.detectIndentation": false,
     "editor.smoothScrolling": true,
     "editor.inlayHints.enabled": "off",
+    "editor.autoClosingOvertype": "always",
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.fontFamily": "Maple Mono NF",
     "terminal.integrated.smoothScrolling": true,
@@ -127,5 +128,6 @@
         "--query-driver=C:\\Users\\wangx\\scoop\\apps\\mingw\\current\\bin\\gcc.exe,C:\\Users\\wangx\\scoop\\apps\\mingw\\current\\bin\\g++.exe"
     ],
     "clang-format.executable": "C:\\Users\\wangx\\scoop\\apps\\llvm\\current\\bin\\clang-format.exe",
-    "python.languageServer": "Pylance"
+    "python.languageServer": "Pylance",
+    "python.analysis.completeFunctionParens": true
 }
