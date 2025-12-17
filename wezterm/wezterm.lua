@@ -23,8 +23,8 @@ local config = {
 
 	color_scheme = "Everforest Dark (Gogh)",
 
-	initial_cols = 140,
-	initial_rows = 50,
+	initial_cols = 200,
+	initial_rows = 55,
 
 	enable_tab_bar = true,
 	tab_bar_at_bottom = false,
@@ -68,8 +68,8 @@ end
 wezterm.on("gui-startup", function(cmd) -- set startup Window position
 	local main_screen = wezterm.gui.screens().main
 	local position = {
-		x = main_screen.width / 3,
-		y = main_screen.height / 8,
+		x = main_screen.width / 6,
+		y = main_screen.height / 11,
 		origin = "MainScreen",
 	}
 	cmd = cmd or { position = position }
