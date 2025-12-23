@@ -36,57 +36,76 @@
     },
     {
         "key": "alt+h",
-        "command": "workbench.action.navigateLeft",
+        "command": "workbench.action.navigateLeft"
     },
     {
         "key": "alt+l",
-        "command": "workbench.action.navigateRight",
+        "command": "workbench.action.navigateRight"
     },
     {
         "key": "alt+j",
-        "command": "workbench.action.navigateDown",
+        "command": "workbench.action.navigateDown"
     },
     {
         "key": "alt+k",
-        "command": "workbench.action.navigateUp",
+        "command": "workbench.action.navigateUp"
     },
     {
         "key": "alt+i",
-        "command": "workbench.action.terminal.toggleTerminal",
+        "command": "workbench.action.terminal.toggleTerminal"
     },
     {
         "key": "alt+u",
-        "command": "workbench.action.togglePanel",
+        "command": "workbench.action.togglePanel"
     },
     {
         "key": "alt+[",
-        "command": "workbench.action.splitEditorDown",
+        "command": "workbench.action.splitEditorDown"
     },
     {
         "key": "alt+]",
-        "command": "workbench.action.splitEditor",
+        "command": "workbench.action.splitEditor"
     },
     {
         "key": "alt+;",
-        "command": "workbench.action.nextEditor",
+        "command": "workbench.action.nextEditor"
     },
     {
         "key": "alt+'",
-        "command": "workbench.action.previousEditor",
+        "command": "workbench.action.previousEditor"
     },
     {
-        "key": "ctrl+j",
+        "key": "alt+j",
         "command": "selectNextSuggestion",
         "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
     },
     {
-        "key": "ctrl+k",
+        "key": "alt+k",
         "command": "selectPrevSuggestion",
         "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
     },
     {
+        "key": "alt+o",
+        "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "alt+j",
+        "command": "quickInput.next",
+        "when": "inQuickInput && quickInputType == 'quickPick' || inQuickInput && quickInputType == 'quickTree'"
+    },
+    {
+        "key": "alt+k",
+        "command": "quickInput.previous",
+        "when": "inQuickInput && quickInputType == 'quickPick' || inQuickInput && quickInputType == 'quickTree'"
+    },
+    {
         "key": "alt+f",
-        "command": "editor.action.format",
+        "command": "workbench.action.findInFiles"
+    },
+    {
+        "key": "alt+j",
+        "command": "search.focus.nextInputBox",
+        "when": "inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible"
     },
     {
         "key": "alt+w",
