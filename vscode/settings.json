@@ -1,6 +1,6 @@
 {
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Gruvbox Dark Hard",
+    "workbench.colorTheme": "One Dark Pro",
     "workbench.activityBar.location": "hidden",
     "workbench.list.smoothScrolling": true,
     "security.workspace.trust.untrustedFiles": "open",
