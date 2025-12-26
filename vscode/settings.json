@@ -1,6 +1,6 @@
 {
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "One Dark Pro",
+    "workbench.colorTheme": "Dracula Theme",
     "workbench.activityBar.location": "hidden",
     "workbench.list.smoothScrolling": true,
     "security.workspace.trust.untrustedFiles": "open",
@@ -132,5 +132,8 @@
     ],
     "clang-format.executable": "C:\\Users\\wangx\\scoop\\apps\\llvm\\current\\bin\\clang-format.exe",
     "python.languageServer": "Pylance",
-    "python.analysis.completeFunctionParens": true
+    "python.analysis.completeFunctionParens": true,
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    }
 }
