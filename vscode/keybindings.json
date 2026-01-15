@@ -122,5 +122,10 @@
     {
         "key": "alt+s",
         "command": "workbench.action.files.saveAll"
+    },
+    {
+        "key": "alt+/",
+        "command": "editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly"
     }
 ]
