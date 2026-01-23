@@ -2,3 +2,28 @@
 show_hidden = true
 
 linemode = "mtime"
+
+[opener]
+edit = [{ run = 'Code %s', orphan = true, desc = "VSCode" }]
+
+browser = [{ run = 'chrome %s', orphan = true, desc = "Browser" }]
+
+open = [
+    { run = 'cmd /c start "" %s', orphan = true, for = "windows", desc = "Open" },
+    { run = 'explorer /select,%s', orphan = true, for = "windows", desc = "Reveal" },
+    { run = 'LockHunter %s', orphan = true, for = "windows", desc = "Lock Hunter" },
+]
+
+[open]
+prepend_rules = [
+    { url = "*.xml", use = [
+        "browser",
+        "edit",
+        "open",
+    ] },
+    { mime = "text/*", use = [
+        "edit",
+        "open",
+    ] },
+    { mime = "*/*", use = "open" },
+]
