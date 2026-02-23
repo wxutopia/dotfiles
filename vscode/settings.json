@@ -1,6 +1,6 @@
 {
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Dracula Theme",
+    "workbench.colorTheme": "One Dark Pro",
     "workbench.activityBar.location": "hidden",
     "workbench.list.smoothScrolling": true,
     "security.workspace.trust.untrustedFiles": "open",
@@ -135,5 +135,6 @@
     "python.analysis.completeFunctionParens": true,
     "[cpp]": {
         "editor.defaultFormatter": "xaver.clang-format"
-    }
+    },
+    "C_Cpp.intelliSenseEngine": "disabled",
 }
