@@ -145,6 +145,8 @@ function which ($command) {
         Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
 }
 
+Set-Alias -Name scp -Value scoop
+
 # Shell wrapper for yazi.
 # The wrapper provides the current working directory when exiting yazi.
 function y {
