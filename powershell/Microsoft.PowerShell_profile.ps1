@@ -1,6 +1,15 @@
 Import-Module Terminal-Icons
 
-Set-PSReadLineOption -EditMode Emacs
+Set-PSReadLineOption -EditMode Vi
+Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler {
+    param($Mode)
+    if ($Mode -eq 'Insert') {
+        Write-Host -NoNewline "`e[6 q"  # Steady bar.
+    } 
+    else {
+        Write-Host -NoNewline "`e[2 q"  # Steady block.
+    }
+}
 
 # Set the prediction source to history records.
 Set-PSReadLineOption -PredictionSource History
