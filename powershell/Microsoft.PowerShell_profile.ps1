@@ -1,5 +1,7 @@
 Import-Module Terminal-Icons
 
+Invoke-Expression (&starship init powershell)
+
 Set-PSReadLineOption -EditMode Vi
 Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler {
     param($Mode)
@@ -169,8 +171,6 @@ function y {
 }
 
 $Env:YAZI_FILE_ONE="C:\Users\wangx\scoop\apps\git\current\usr\bin\file.exe"
-
-Invoke-Expression (&starship init powershell)
 
 # Setup zoxide
 Invoke-Expression (& { (zoxide init powershell | Out-String ) })
