@@ -6,7 +6,7 @@
     "security.workspace.trust.untrustedFiles": "open",
     "editor.formatOnSave": true,
     "editor.minimap.enabled": false,
-    "editor.fontSize": 15,
+    "editor.fontSize": 14,
     "editor.bracketPairColorization.enabled": true,
     "editor.cursorSmoothCaretAnimation": "on",
     "editor.fontFamily": "Maple Mono NL",
