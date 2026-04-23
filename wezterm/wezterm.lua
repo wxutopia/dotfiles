@@ -114,8 +114,18 @@ config.keys = {
         action = act.CloseCurrentPane({ confirm = true }),
     },
     {
+        key = "w",
+        mods = "CTRL",
+        action = act.CloseCurrentPane({ confirm = true }),
+    },
+    {
         key = "t",
         mods = alt_or_cmd,
+        action = act.SpawnTab("CurrentPaneDomain"),
+    },
+    {
+        key = "t",
+        mods = "CTRL",
         action = act.SpawnTab("CurrentPaneDomain"),
     },
     {
@@ -144,12 +154,12 @@ config.keys = {
         action = act.ActivateTabRelative(-1),
     },
     {
-        key = "[",
+        key = "\\",
         mods = alt_or_cmd,
         action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
     },
     {
-        key = "]",
+        key = "/",
         mods = alt_or_cmd,
         action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
     },
@@ -184,12 +194,12 @@ config.keys = {
         action = act.PasteFrom("Clipboard"),
     },
     {
-        key = "9", -- "UpArrow",
+        key = "[", -- "UpArrow",
         mods = alt_or_cmd,
         action = act.ScrollByPage(-0.3),
     },
     {
-        key = "0", -- "DownArrow",
+        key = "]", -- "DownArrow",
         mods = alt_or_cmd,
         action = act.ScrollByPage(0.3),
     },

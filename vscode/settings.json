@@ -33,7 +33,8 @@
     "vim.handleKeys": {
         "<C-w>": false,
         "<C-f>": false,
-        "<C-p>": false
+        "<C-h>": false,
+        "<C-a>": false
     },
     "vim.normalModeKeyBindingsNonRecursive": [
         {

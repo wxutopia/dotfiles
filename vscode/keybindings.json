@@ -1,12 +1,12 @@
 // Place your key bindings in this file to override the defaults
 [
     {
-        "key": "alt+e",
+        "key": "ctrl+e",
         "command": "workbench.view.explorer",
         "when": "viewContainer.workbench.view.explorer.enabled"
     },
     {
-        "key": "alt+b",
+        "key": "ctrl+b",
         "command": "workbench.action.toggleSidebarVisibility"
     },
     {
@@ -59,11 +59,11 @@
         "command": "workbench.action.togglePanel"
     },
     {
-        "key": "alt+[",
+        "key": "alt+/",
         "command": "workbench.action.splitEditorDown"
     },
     {
-        "key": "alt+]",
+        "key": "alt+\\",
         "command": "workbench.action.splitEditor"
     },
     {
@@ -71,7 +71,15 @@
         "command": "workbench.action.nextEditor"
     },
     {
+        "key": "ctrl+tab",
+        "command": "workbench.action.nextEditor"
+    },
+    {
         "key": "alt+'",
+        "command": "workbench.action.previousEditor"
+    },
+    {
+        "key": "ctrl+shift+tab",
         "command": "workbench.action.previousEditor"
     },
     {
@@ -124,7 +132,7 @@
         "command": "workbench.action.files.saveAll"
     },
     {
-        "key": "alt+/",
+        "key": "ctrl+/",
         "command": "editor.action.commentLine",
         "when": "editorTextFocus && !editorReadonly"
     }
