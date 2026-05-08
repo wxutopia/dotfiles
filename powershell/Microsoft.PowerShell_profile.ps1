@@ -156,6 +156,11 @@ function which ($command) {
         Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
 }
 
+function code {
+    $vscode = "${env:USERPROFILE}\scoop\apps\vscode\current\Code.exe"
+    & $vscode $args > $null 2>&1
+}
+
 Set-Alias -Name scp -Value scoop
 
 # Shell wrapper for yazi.
