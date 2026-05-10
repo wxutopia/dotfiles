@@ -15,7 +15,8 @@ end
 
 local config = {
     font_size = 10,
-    font = wezterm.font("Maple Mono NL NF", { weight = "Bold" }),
+    -- font = wezterm.font("Maple Mono NL NF", { weight = "Bold" }),
+    font = wezterm.font("JetBrainsMono Nerd Font"),
 
     -- underline_thickness = "0.13cell",
 
