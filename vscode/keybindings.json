@@ -97,6 +97,10 @@
         "command": "workbench.action.quickOpen"
     },
     {
+        "key": "ctrl+o",
+        "command": "workbench.action.quickOpen"
+    },
+    {
         "key": "alt+j",
         "command": "quickInput.next",
         "when": "inQuickInput && quickInputType == 'quickPick' || inQuickInput && quickInputType == 'quickTree'"

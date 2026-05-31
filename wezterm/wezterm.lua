@@ -23,7 +23,7 @@ local config = {
 
     -- underline_thickness = "0.13cell",
 
-    custom_block_glyphs = false,
+    custom_block_glyphs = true,
 
     color_scheme = "Everforest Dark (Gogh)",
 
