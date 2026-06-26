@@ -36,10 +36,11 @@ Set-PSReadLineKeyHandler -Key "ctrl+j" -ScriptBlock {
     [Microsoft.PowerShell.PSConsoleReadLine]::HistorySearchForward()
     [Microsoft.PowerShell.PSConsoleReadLine]::EndOfLine()
 }
-Set-PSReadLineKeyHandler -Key '"',"'" `
-                         -BriefDescription SmartInsertQuote `
-                         -LongDescription "Insert paired quotes if not already on a quote" `
-                         -ScriptBlock {
+
+Set-PSReadLineKeyHandler -Key '"', "'" `
+    -BriefDescription SmartInsertQuote `
+    -LongDescription "Insert paired quotes if not already on a quote" `
+    -ScriptBlock {
     param($key, $arg)
 
     $line = $null
@@ -50,63 +51,68 @@ Set-PSReadLineKeyHandler -Key '"',"'" `
         # Just move the cursor
         [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($cursor + 1)
     }
-    else {
+    elseif ($line.Length -eq 0 `
+            -or (($line.Length -eq $cursor -or $line[$cursor] -eq ' ') -and ($cursor -eq 0 -or $line[$cursor - 1] -eq ' ')) `
+            -or (($line.Length -eq $cursor -or $line[$cursor] -eq '"') -and ($cursor -eq 0 -or $line[$cursor - 1] -eq '"')) `
+            -or (($line.Length -eq $cursor -or $line[$cursor] -eq "'") -and ($cursor -eq 0 -or $line[$cursor - 1] -eq "'")) `
+            -or (($line.Length -eq $cursor -or $line[$cursor] -eq ')') -and ($cursor -eq 0 -or $line[$cursor - 1] -eq '(')) `
+            -or (($line.Length -eq $cursor -or $line[$cursor] -eq '}') -and ($cursor -eq 0 -or $line[$cursor - 1] -eq '{')) `
+            -or (($line.Length -eq $cursor -or $line[$cursor] -eq ']') -and ($cursor -eq 0 -or $line[$cursor - 1] -eq '['))) {
         # Insert matching quotes, move cursor to be in between the quotes
         [Microsoft.PowerShell.PSConsoleReadLine]::Insert("$($key.KeyChar)" * 2)
         [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
         [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($cursor - 1)
     }
+    else {
+        [Microsoft.PowerShell.PSConsoleReadLine]::Insert("$($key.KeyChar)")
+    }
 }
 
-Set-PSReadLineKeyHandler -Key '(','{','[' `
-                         -BriefDescription InsertPairedBraces `
-                         -LongDescription "Insert matching braces" `
-                         -ScriptBlock {
+Set-PSReadLineKeyHandler -Key '(', '{', '[' `
+    -BriefDescription InsertPairedBraces `
+    -LongDescription "Insert matching braces" `
+    -ScriptBlock {
     param($key, $arg)
 
-    $closeChar = switch ($key.KeyChar)
-    {
+    $closeChar = switch ($key.KeyChar) {
         <#case#> '(' { [char]')'; break }
         <#case#> '{' { [char]'}'; break }
         <#case#> '[' { [char]']'; break }
     }
 
-    $selectionStart = $null
-    $selectionLength = $null
-    [Microsoft.PowerShell.PSConsoleReadLine]::GetSelectionState([ref]$selectionStart, [ref]$selectionLength)
-
     $line = $null
     $cursor = $null
     [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
-    
-    if ($selectionStart -ne -1)
-    {
-      # Text is selected, wrap it in brackets
-      [Microsoft.PowerShell.PSConsoleReadLine]::Replace($selectionStart, $selectionLength, $key.KeyChar + $line.SubString($selectionStart, $selectionLength) + $closeChar)
-      [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($selectionStart + $selectionLength + 2)
-    } else {
-      # No text is selected, insert a pair
-      [Microsoft.PowerShell.PSConsoleReadLine]::Insert("$($key.KeyChar)$closeChar")
-      [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($cursor + 1)
+
+    if ($line.Length -eq 0 `
+            -or ($line.Length -eq $cursor -or $line[$cursor] -eq ' ') `
+            -or (($line.Length -eq $cursor -or $line[$cursor] -eq '"') -and ($cursor -eq 0 -or $line[$cursor - 1] -eq '"')) `
+            -or (($line.Length -eq $cursor -or $line[$cursor] -eq "'") -and ($cursor -eq 0 -or $line[$cursor - 1] -eq "'")) `
+            -or (($line.Length -eq $cursor -or $line[$cursor] -eq ')') -and ($cursor -eq 0 -or $line[$cursor - 1] -eq '(')) `
+            -or (($line.Length -eq $cursor -or $line[$cursor] -eq '}') -and ($cursor -eq 0 -or $line[$cursor - 1] -eq '{')) `
+            -or (($line.Length -eq $cursor -or $line[$cursor] -eq ']') -and ($cursor -eq 0 -or $line[$cursor - 1] -eq '['))) {
+        [Microsoft.PowerShell.PSConsoleReadLine]::Insert("$($key.KeyChar)$closeChar")
+        [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($cursor + 1)
+    }
+    else {
+        [Microsoft.PowerShell.PSConsoleReadLine]::Insert("$($key.KeyChar)")
     }
 }
 
-Set-PSReadLineKeyHandler -Key ')',']','}' `
-                         -BriefDescription SmartCloseBraces `
-                         -LongDescription "Insert closing brace or skip" `
-                         -ScriptBlock {
+Set-PSReadLineKeyHandler -Key ')', ']', '}' `
+    -BriefDescription SmartCloseBraces `
+    -LongDescription "Insert closing brace or skip" `
+    -ScriptBlock {
     param($key, $arg)
 
     $line = $null
     $cursor = $null
     [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
 
-    if ($line[$cursor] -eq $key.KeyChar)
-    {
+    if ($line[$cursor] -eq $key.KeyChar) {
         [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($cursor + 1)
     }
-    else
-    {
+    else {
         [Microsoft.PowerShell.PSConsoleReadLine]::Insert("$($key.KeyChar)")
     }
 }
